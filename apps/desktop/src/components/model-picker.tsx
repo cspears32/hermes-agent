@@ -9,6 +9,7 @@ import type { HermesGateway } from '../hermes'
 import { getGlobalModelOptions } from '../hermes'
 import { cn } from '../lib/utils'
 import { startManualOnboarding } from '../store/onboarding'
+import { requestComposerFocus } from '@/app/chat/composer/focus'
 
 import { InlineNotice } from './notifications'
 import { Button } from './ui/button'
@@ -85,6 +86,7 @@ export function ModelPickerDialog({
   const selectModel = (provider: ModelOptionProvider, model: string) => {
     onSelect({ provider: provider.slug, model })
     onOpenChange(false)
+    requestComposerFocus('main')
   }
 
   // Open the full onboarding provider selector to add/switch a provider.

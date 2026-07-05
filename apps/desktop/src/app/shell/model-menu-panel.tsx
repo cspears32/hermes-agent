@@ -2,6 +2,7 @@ import { useStore } from '@nanostores/react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { createContext, useContext, useMemo, useState } from 'react'
 
+import { requestComposerFocus } from '@/app/chat/composer/focus'
 import { Codicon } from '@/components/ui/codicon'
 import {
   DropdownMenuGroup,
@@ -278,6 +279,7 @@ export function ModelMenuPanel({ gateway, onSelectModel, requestGateway }: Model
                   }
 
                   closeMenu()
+                  requestComposerFocus('main')
                 }
 
                 return (

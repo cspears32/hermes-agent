@@ -8,6 +8,7 @@ import { useI18n } from '@/i18n'
 import { sessionTitle } from '@/lib/chat-runtime'
 import { Check, MessageCircle } from '@/lib/icons'
 import { cn } from '@/lib/utils'
+import { requestComposerFocus } from '@/app/chat/composer/focus'
 
 interface SessionPickerDialogProps {
   /** Stored id of the session currently open, so it can be flagged in the list. */
@@ -70,6 +71,7 @@ export function SessionPickerDialog({ activeStoredSessionId, onOpenChange, onRes
                       onSelect={() => {
                         onResume(session.id)
                         onOpenChange(false)
+                        requestComposerFocus('main')
                       }}
                       value={`${title} ${preview ?? ''} ${session.id}`}
                     >
